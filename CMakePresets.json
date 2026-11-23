@@ -1,0 +1,95 @@
+{
+  "version": 6,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 24,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "base",
+      "hidden": true,
+      "generator": "Ninja",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "ci",
+      "displayName": "CI",
+      "inherits": "base",
+      "binaryDir": "${sourceDir}/build/ci",
+      "cacheVariables": {
+        "ENABLE_COVERAGE": "OFF",
+        "BUILD_BENCHMARKS": "ON",
+        "BUILD_DOCUMENTATION": "ON"
+      }
+    },
+    {
+      "name": "coverage",
+      "displayName": "Coverage",
+      "inherits": "base",
+      "binaryDir": "${sourceDir}/build/coverage",
+      "cacheVariables": {
+        "ENABLE_COVERAGE": "ON",
+        "BUILD_BENCHMARKS": "OFF",
+        "BUILD_DOCUMENTATION": "OFF"
+      }
+    },
+    {
+      "name": "debug",
+      "displayName": "Debug",
+      "inherits": "base",
+      "binaryDir": "${sourceDir}/build/debug"
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "ci",
+      "configurePreset": "ci",
+      "jobs": 2
+    },
+    {
+      "name": "coverage",
+      "configurePreset": "coverage",
+      "targets": [
+        "coverage"
+      ]
+    },
+    {
+      "name": "debug",
+      "configurePreset": "debug",
+      "jobs": 2
+    },
+    {
+      "name": "benchmarks",
+      "configurePreset": "ci",
+      "targets": [
+        "benchmarks"
+      ]
+    },
+    {
+      "name": "documentation",
+      "configurePreset": "ci",
+      "targets": [
+        "documentation"
+      ]
+    }
+  ],
+  "testPresets": [
+    {
+      "name": "ci",
+      "configurePreset": "ci",
+      "output": {
+        "outputOnFailure": true
+      }
+    },
+    {
+      "name": "coverage",
+      "configurePreset": "coverage",
+      "output": {
+        "outputOnFailure": true
+      }
+    }
+  ]
+}
