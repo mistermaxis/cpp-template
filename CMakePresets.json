@@ -11,7 +11,8 @@
       "hidden": true,
       "generator": "Ninja",
       "cacheVariables": {
-        "CMAKE_BUILD_TYPE": "Debug"
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_CXX_COMPILER": "g++"
       }
     },
     {
@@ -51,10 +52,7 @@
     },
     {
       "name": "coverage",
-      "configurePreset": "coverage",
-      "targets": [
-        "coverage"
-      ]
+      "configurePreset": "coverage"
     },
     {
       "name": "debug",
