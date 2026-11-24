@@ -13,6 +13,13 @@ else()
   target_compile_options(core_template PRIVATE -Wall -Wextra -pedantic)
 endif()
 
+if(ENABLE_COVERAGE AND CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+  target_compile_options(core_template PRIVATE
+  --coverage -O0 -g
+  $<$<CONFIG:Debug>:-fsanitize=address -fno-omit-frame-pointer>
+  )
+endif()
+
 # Enable Architecture-Specific Optimizations for Release Builds
 # -march=native allows the compiler to use instructions specific
 # to your CPU (like AVX)
