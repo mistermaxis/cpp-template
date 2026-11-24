@@ -10,4 +10,5 @@ target_compile_options(app_template PRIVATE
 )
 target_link_options(app_template PRIVATE
   $<$<CONFIG:Debug>:-fsanitize=address>
+  --coverage
 )

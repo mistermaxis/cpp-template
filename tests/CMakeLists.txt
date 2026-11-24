@@ -19,14 +19,16 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 
 FetchContent_MakeAvailable(googletest)
 
-target_compile_options(template-test PRIVATE
+if(ENABLE_COVERAGE AND CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+  target_compile_options(template-test PRIVATE
+  --coverage -O0 -g
+  $<$<CONFIG:Debug>:-fsanitize=address -fno-omit-frame-pointer>
+  )
+  target_link_options(template-test PRIVATE
   --coverage
   $<$<CONFIG:Debug>:-fsanitize=address -fno-omit-frame-pointer>
-)
-target_link_options(template-test PRIVATE
-  --coverage
-  $<$<CONFIG:Debug>:-fsanitize=address>
-)
+  )
+endif()
 
 target_include_directories(template-test
   PUBLIC
