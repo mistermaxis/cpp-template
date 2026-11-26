@@ -1,12 +1,21 @@
+C++ template
 # Features to add
 
 - [x] Add CMake setup
 - [x] Add sources
 - [x] Add tests
 - [x] Split app and core directories
-- [ ] Add coverage
-- [ ] Add examples
-- [ ] Add benchmarks
+- [x] Add coverage
+- [x] Add examples
+- [x] Add documentation
+- [ ] Add release preset
+- [ ] Add address sanitizer preset
 - [ ] Add address sanitizer
-- [ ] Add optimizations
+- [x] Add optimizations
+- [ ] Add benchmarks
+- [ ] Add vcpkg setup
 - [ ] Add CI
+- [ ] Add github pages
+- [ ] Add astro website
+- [ ] Add dependabot
+- [ ] Add template documentation
