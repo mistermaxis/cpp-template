@@ -42,6 +42,16 @@
       "displayName": "Debug",
       "inherits": "base",
       "binaryDir": "${sourceDir}/build/debug"
+    },
+    {
+      "name": "release",
+      "displayName": "Release",
+      "binaryDir": "${sourceDir}/build/release",
+      "generator": "Ninja",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "BUILD_TESTING": "OFF"
+      }
     }
   ],
   "buildPresets": [
@@ -58,6 +68,10 @@
       "name": "debug",
       "configurePreset": "debug",
       "jobs": 2
+    },
+    {
+      "name": "release",
+      "configurePreset": "release"
     },
     {
       "name": "benchmarks",
