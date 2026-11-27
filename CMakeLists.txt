@@ -9,4 +9,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_subdirectory(core_template)
 add_subdirectory(app_template)
+
+if(BUILD_TESTING)
 add_subdirectory(tests)
+endif()
