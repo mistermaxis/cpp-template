@@ -8,7 +8,7 @@ C++ template
 - [x] Add coverage
 - [x] Add examples
 - [x] Add documentation
-- [ ] Add release preset
+- [x] Add release preset
 - [ ] Add address sanitizer preset
 - [ ] Add address sanitizer
 - [x] Add optimizations
