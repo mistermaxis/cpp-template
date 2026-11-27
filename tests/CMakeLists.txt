@@ -1,3 +1,4 @@
+if(BUILD_TESTING)
 # Test executable
 add_executable(template-test
   template-test.cpp
@@ -44,3 +45,4 @@ target_link_libraries(template-test
 # Discover individual TEST cases and register them with CTest.
 include(GoogleTest)
 gtest_discover_tests(template-test)
+endif()
